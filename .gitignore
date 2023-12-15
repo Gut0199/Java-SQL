@@ -1,0 +1,6 @@
+sqlBook.sql
+.vscode/
+README.md
+bin/
+db.properties
+lib/
