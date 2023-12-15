@@ -14,20 +14,26 @@ public class ProgramBook {
         System.out.println("===== TEST 1: Book INSERT INTO Books =====");
         Book newBook = new Book();
 
-        newBook.setTitle("Clean Code");
-        newBook.setAuthor("Robert C. Martin");
+        newBook.setTitle("Lógica de Programação e Algoritmos com JavaScript 2ª Edição");
+        newBook.setAuthor("Edécio Fernando lepsen");
         newBook.setCategory("Education");
-        newBook.setSerie("Clean Architecture");
-        newBook.setNumberPages(456);
-        newBook.setPublisher("Alta Books");
-        newBook.setPublicationDate(2008);
-        newBook.setIsbn10("8576082675");
-        newBook.setIsbn13("9788576082675");
-        newBook.setPrice(BigDecimal.valueOf(202.71));
+        newBook.setSerie("Lógica de Programação e Algoritmos com JavaScript");
+        newBook.setNumberPages(352);
+        newBook.setPublisher("Novatec Editora");
+        newBook.setPublicationDate(2022);
+        newBook.setIsbn10("9786586057904");
+        newBook.setIsbn13("6586057906");
+        newBook.setPrice(BigDecimal.valueOf(79.49));
         newBook.setQuantityStock(100);
 
         bookDao.inset(newBook);
         System.out.println("New Book inserted with successfully! Id: " + newBook.getID());
 
+        System.out.println("===== TEST 1.2: Book UPDATE INTO Books =====");
+        Book selectBook = bookDao.selectById(2);
+        selectBook.setIsbn10("6586057906");
+        selectBook.setIsbn13("9786586057904");
+        bookDao.update(selectBook);
+        System.out.println("Update completed!");
     }
 }
