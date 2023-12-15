@@ -1,17 +1,19 @@
 package model.entities;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 public class Book implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    // private String title, category, serie, publisher, isbn10, isbn13;
+    // private String title, author, category, serie, publisher, isbn10, isbn13;
     // private Integer ID, numberPages, publicationDate, quantityStock;
     // private Double price;
 
     private Integer ID;
     private String title;
+    private String author;
     private String category;
     private String serie;
     private Integer numberPages;
@@ -19,16 +21,17 @@ public class Book implements Serializable {
     private Integer publicationDate;
     private String isbn10;
     private String isbn13;
-    private Double price;
+    private BigDecimal price;
     private Integer quantityStock;
 
     public Book() {
     }
 
-    public Book(Integer iD, String title, String category, String serie, Integer numberPages, String publisher,
-            Integer publicationDate, String isbn10, String isbn13, Double price, Integer quantityStock) {
+    public Book(Integer iD, String title, String author, String category, String serie, Integer numberPages, String publisher,
+            Integer publicationDate, String isbn10, String isbn13, BigDecimal price, Integer quantityStock) {
         ID = iD;
         this.title = title;
+        this.author = author;
         this.category = category;
         this.serie = serie;
         this.numberPages = numberPages;
@@ -58,6 +61,14 @@ public class Book implements Serializable {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
     public String getCategory() {
@@ -116,11 +127,11 @@ public class Book implements Serializable {
         this.isbn13 = isbn13;
     }
 
-    public Double getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(Double price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
 
@@ -159,9 +170,10 @@ public class Book implements Serializable {
 
     @Override
     public String toString() {
-        return "Book [ID=" + ID + ", title=" + title + ", category=" + category + ", serie=" + serie + ", numberPages="
-                + numberPages + ", publisher=" + publisher + ", publicationDate=" + publicationDate + ", isbn10="
-                + isbn10 + ", isbn13=" + isbn13 + ", price=" + price + ", quantityStock=" + quantityStock + "]";
+        return "Book [ID=" + ID + ", title=" + title + ", author=" + author + ", category=" + category + ", serie="
+                + serie + ", numberPages=" + numberPages + ", publisher=" + publisher + ", publicationDate="
+                + publicationDate + ", isbn10=" + isbn10 + ", isbn13=" + isbn13 + ", price=" + price
+                + ", quantityStock=" + quantityStock + "]";
     }
 
 }
