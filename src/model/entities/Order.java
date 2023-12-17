@@ -1,6 +1,7 @@
 package model.entities;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.sql.Date;
 
 public class Order implements Serializable {
@@ -15,18 +16,21 @@ public class Order implements Serializable {
     private Integer ID;
     private Integer clientsId;
     private Integer booksId;
+    private Integer quantityPurchased;
     private Date dateApplication;
     private String orderStatus;
-    private Double unitPrice;
+    private BigDecimal unitPrice;
 
     public Order() {
     }
 
-    public Order(Integer iD, Integer clientsId, Integer booksId, Date dateApplication, String orderStatus,
-            Double unitPrice) {
+    public Order(Integer iD, Integer clientsId, Integer booksId, Integer quantityPurchased, Date dateApplication,
+            String orderStatus,
+            BigDecimal unitPrice) {
         ID = iD;
         this.clientsId = clientsId;
         this.booksId = booksId;
+        this.quantityPurchased = quantityPurchased;
         this.dateApplication = dateApplication;
         this.orderStatus = orderStatus;
         this.unitPrice = unitPrice;
@@ -60,6 +64,14 @@ public class Order implements Serializable {
         this.booksId = booksId;
     }
 
+    public Integer getQuantityPurchased() {
+        return quantityPurchased;
+    }
+
+    public void setQuantityPurchased(Integer quantityPurchased) {
+        this.quantityPurchased = quantityPurchased;
+    }
+
     public Date getDateApplication() {
         return dateApplication;
     }
@@ -76,11 +88,11 @@ public class Order implements Serializable {
         this.orderStatus = orderStatus;
     }
 
-    public Double getUnitPrice() {
+    public BigDecimal getUnitPrice() {
         return unitPrice;
     }
 
-    public void setUnitPrice(Double unitPrice) {
+    public void setUnitPrice(BigDecimal unitPrice) {
         this.unitPrice = unitPrice;
     }
 
@@ -111,7 +123,8 @@ public class Order implements Serializable {
 
     @Override
     public String toString() {
-        return "Order [ID=" + ID + ", clientsId=" + clientsId + ", booksId=" + booksId + ", dateApplication="
+        return "Order [ID=" + ID + ", clientsId=" + clientsId + ", booksId=" + booksId + ", quantityPurchased="
+                + quantityPurchased + ", dateApplication="
                 + dateApplication + ", orderStatus=" + orderStatus + ", unitPrice=" + unitPrice + "]";
     }
 
