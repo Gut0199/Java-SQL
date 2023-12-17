@@ -1,6 +1,6 @@
 sqlBook.sql
 .vscode/
 README.md
-bin/
+# bin/
 db.properties
-lib/
+# lib/
